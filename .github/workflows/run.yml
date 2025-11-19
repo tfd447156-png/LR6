@@ -4,24 +4,19 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  run-program:
+  run-python:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Run converter
-        run: |
-          echo "Автоматичний запуск..."
-          python LR6.py <<EOF
-1000
-EOF
+      - name: Run script
+        run: python3 LR6.py
