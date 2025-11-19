@@ -1,0 +1,27 @@
+name: Run Currency Converter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  run-program:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run converter
+        run: |
+          echo "Автоматичний запуск..."
+          python LR6.py <<EOF
+1000
+EOF
